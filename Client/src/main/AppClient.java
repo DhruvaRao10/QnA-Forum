@@ -46,6 +46,7 @@ public class AppClient extends Application {
             System.out.println("Request sent to server!");
         } catch (IOException e) {
             e.printStackTrace();
+
         }
     }
 
