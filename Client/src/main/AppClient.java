@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import request.AppRequest;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -33,7 +32,7 @@ public class AppClient extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(AppClient.class.getResource("./../views/login_view.fxml"));
-        Scene scene = new Scene(loader.load(), 500, 500);
+        Scene scene = new Scene(loader. load(), 500, 500);
         stage.setScene(scene);
         stage.setTitle("Login");
         stage.show();
@@ -52,6 +51,7 @@ public class AppClient extends Application {
     public static Object getResponse() {
         try {
             System.out.println("Waiting for response...");
+
             return objectInputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

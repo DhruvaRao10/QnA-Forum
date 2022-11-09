@@ -3,30 +3,25 @@ package response;
 import java.io.Serializable;
 
 public class LoginResponse extends AppResponse implements Serializable {
-    private final String firstName,lastName,emailID;
-    private final String registrationNo;
+    public  String emailID ;
+    public  String username;
 
-    public LoginResponse(String firstName, String lastName, String emailID, String registrationNo) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+
+
+
+    public LoginResponse(String username , String emailID) {
+
         this.emailID = emailID;
-        this.registrationNo = registrationNo;
+        this.username = username;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
 
     public String getLastName() {
-        return lastName;
+        return username;
     }
 
     public String getEmailID() {
         return emailID;
-    }
-
-    public String getRegistrationNo() {
-        return registrationNo;
     }
 
     @Override

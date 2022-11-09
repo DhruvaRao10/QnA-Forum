@@ -15,7 +15,7 @@ import response.LoginResponse;
 
 import java.io.IOException;
 
-public class Logincontroller {
+public class  Logincontroller {
 
     @FXML
     public AnchorPane loginPane;
@@ -23,15 +23,19 @@ public class Logincontroller {
     public Button loginButton;
     @FXML
     public PasswordField passwordField;
+
     @FXML
     public TextField usernameField;
+
+    @FXML
+    public TextField emailIDField ;
     @FXML
     public Label signinLabel;
     @FXML
     public Hyperlink signupLink;
 
     public void login(ActionEvent actionEvent) {
-        LoginRequest request = new LoginRequest(usernameField.getText(), passwordField.getText());
+        LoginRequest request = new LoginRequest(usernameField.getText(),emailIDField.getText() ,passwordField.getText());
         AppClient.sendRequest(request);
         LoginResponse response = (LoginResponse) AppClient.getResponse();
         Alert alert;

@@ -4,44 +4,37 @@ import java.io.Serializable;
 
 public class SignupRequest extends AppRequest implements Serializable {
 
-    private String userName;
     private String email;
     private String password;
+    private String username;
 
-    public SignupRequest() {
-    }
 
-    public SignupRequest(String userName, String email, String password) {
 
-        this.userName = userName;
+    public SignupRequest(String username, String email, String password) {
+
+        this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    public String getFirstName() {
-        return userName;
-    }
 
-    public void setFirstName(String userName) {
-        this.userName = userName;
+    public String getUsername(String username) {
+        this.username = username;
+        return username;
     }
 
 
     public String getEmail() {
+        this.email = email;
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getPassword() {
+        this.password=password;
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     @Override
     public RequestType getRequestType() {

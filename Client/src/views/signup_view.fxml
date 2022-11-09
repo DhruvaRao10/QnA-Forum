@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="registerPane" prefHeight="354.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignUpController">
+<AnchorPane fx:id="registerPane" prefHeight="354.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SignUpController">
     <VBox alignment="CENTER" layoutX="88.0" layoutY="129.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <children>
             <Label fx:id="signupLabel" text="Sign Up">
@@ -21,7 +21,11 @@
             </Label>
             <HBox alignment="CENTER">
                 <children>
-                    <TextField fx:id="userNameField" promptText="Username" />
+                    <TextField fx:id="usernameField" promptText="username">
+                        <HBox.margin>
+                            <Insets right="10.0" />
+                        </HBox.margin>
+                    </TextField>
                 </children>
                 <VBox.margin>
                     <Insets left="5.0" right="5.0" />
@@ -42,6 +46,7 @@
                             <Insets right="10.0" />
                         </HBox.margin>
                     </PasswordField>
+                    <PasswordField fx:id="confirmpasswordField" onAction="#checkIfMatches" promptText="Confirm Password" />
                 </children>
             </HBox>
             <Button fx:id="registerButton" mnemonicParsing="false" onAction="#register" text="Register" />
