@@ -65,7 +65,7 @@ public class SignUpController {
             System.out.println("Register request sent");
             SignupResponse response = (SignupResponse) AppClient.getResponse();
             assert response != null;
-            if (response.getMessage().length() != 0) {
+            if ((response.getMessage()).length() != 0) {
                 System.out.println("Signup success!");
                 this.switchToLogin(actionEvent);
             } else {
