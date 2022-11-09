@@ -11,7 +11,7 @@ public class LoginResponse extends AppResponse implements Serializable {
         this.emailID = emailID;
     }
 
-    public String getFirstName() {
+    public String getUserName() {
         return userName;
     }
 

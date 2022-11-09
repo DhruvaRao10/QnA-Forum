@@ -3,7 +3,7 @@ package request;
 import java.io.Serializable;
 
 public class LoginRequest extends AppRequest implements Serializable {
-   private String username;
+    private String username;
     private String email;
     private String password;
 
