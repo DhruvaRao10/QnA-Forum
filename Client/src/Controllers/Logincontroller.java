@@ -56,6 +56,7 @@ public class  Logincontroller {
         }
         stage.setScene(scene);
         stage.setTitle("Sign Up");
+
     }
 
 
