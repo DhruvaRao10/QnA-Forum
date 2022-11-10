@@ -3,6 +3,7 @@ package response;
 import java.io.Serializable;
 
 public class LoginResponse extends AppResponse implements Serializable {
+    private static final long serialVersionUID = 8529685098267757690L;
     private final String username;
     private final String password;
 

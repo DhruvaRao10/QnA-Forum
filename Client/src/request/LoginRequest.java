@@ -12,9 +12,8 @@ public class LoginRequest extends AppRequest implements Serializable {
     public LoginRequest(String usernameField, String emailIDField , String passwordField) {
     }
 
-    public LoginRequest(String email, String password) {
+    public LoginRequest(String username , String password) {
         this.username=username;
-        this.email = email;
         this.password = password;
     }
     public String getUsername() {
