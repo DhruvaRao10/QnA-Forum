@@ -3,7 +3,12 @@ package response;
 import java.io.Serializable;
 
 public class LoginResponse extends AppResponse implements Serializable {
-    public  String username;
+    private static final long serialVersionUID = 8529685098267757690L;
+
+
+    private final   String username;
+    public  String  emailID;
+
 
 
 
@@ -17,6 +22,9 @@ public class LoginResponse extends AppResponse implements Serializable {
     public String getUsername() {
         return username;
     }
+
+    public String getEmailID(){return emailID;}
+
 
     @Override
     ResponseType getResponseType() {

@@ -8,7 +8,7 @@ public class LoginRequest extends AppRequest implements Serializable {
         private static final long serialVersionUID = 6529685098267757690L;
 
 
-    
+
 
     private String email;
     private String password;

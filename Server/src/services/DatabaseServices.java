@@ -45,8 +45,10 @@ public class DatabaseServices {
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
                 String username = resultSet.getString(1);
-                String password =resultSet.getString(2);;
-                return new LoginResponse(username,password);
+                String emailID=resultSet.getString(2);;
+                System.out.println(" username : "+username);
+                System.out.println("emailid  :"+emailID);
+                return new LoginResponse(username,emailID);
             } else {
                 return null;
             }
