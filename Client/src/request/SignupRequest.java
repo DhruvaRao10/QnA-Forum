@@ -3,6 +3,8 @@ package request;
 import java.io.Serializable;
 
 public class SignupRequest extends AppRequest implements Serializable {
+    private static final long serialVersionUID = 7529685098267757690L;
+
 
     private String email;
     private String password;
