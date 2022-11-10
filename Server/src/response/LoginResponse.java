@@ -3,7 +3,6 @@ package response;
 import java.io.Serializable;
 
 public class LoginResponse extends AppResponse implements Serializable {
-    public  String emailID ;
     public  String username;
 
 
@@ -11,17 +10,12 @@ public class LoginResponse extends AppResponse implements Serializable {
 
     public LoginResponse(String username , String emailID) {
 
-        this.emailID = emailID;
         this.username = username;
     }
 
 
-    public String getLastName() {
+    public String getUsername() {
         return username;
-    }
-
-    public String getEmailID() {
-        return emailID;
     }
 
     @Override

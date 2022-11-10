@@ -29,7 +29,7 @@ public class AppServer {
         if (connection != null) return connection;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/login";
+            String url = "jdbc:mysql://localhost:3306/qna";
             connection = DriverManager.getConnection(url, "root", "Topcoder2024$");
             System.out.println("Database connected");
         } catch (ClassNotFoundException | SQLException e) {

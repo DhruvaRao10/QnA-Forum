@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class SignupRequest extends AppRequest implements Serializable {
 
+    private static final long serialVersionUID = 7529685098267757690L;
 
     private String username;
     private String email;
@@ -40,4 +41,5 @@ public class SignupRequest extends AppRequest implements Serializable {
     public RequestType getRequestType() {
         return RequestType.SIGNUP_REQUEST;
     }
+
 }

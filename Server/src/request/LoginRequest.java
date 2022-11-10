@@ -1,8 +1,14 @@
 package request;
 
 import java.io.Serializable;
+import java.net.URL;
 
 public class LoginRequest extends AppRequest implements Serializable {
+
+        private static final long serialVersionUID = 6529685098267757690L;
+
+
+    
 
     private String email;
     private String password;
@@ -11,11 +17,12 @@ public class LoginRequest extends AppRequest implements Serializable {
     public LoginRequest() {
     }
 
-    public LoginRequest(String email, String password) {
-        this.email = email;
+    public LoginRequest(String username, String password) {
+
         this.password = password;
         this.username = username ;
     }
+
 
     public String getUsername() {
         return username;
@@ -26,14 +33,6 @@ public class LoginRequest extends AppRequest implements Serializable {
         this.username = username;
     }
 
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getPassword() {
         return password;

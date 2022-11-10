@@ -31,7 +31,8 @@ public class ClientHandler implements Runnable {
                     case LOGIN_REQUEST -> {
                         System.out.println("Client wants to login!");
                         LoginRequest loginRequest = (LoginRequest) request;
-                        System.out.println("Email: " + loginRequest.getEmail());
+                        System.out.println("Username: " + loginRequest.getUsername());
+                        System.out.println("Password:"+loginRequest.getPassword());
                         objectOutputStream.writeObject(DatabaseServices.loginUser(loginRequest));
                         objectOutputStream.flush();
                     }
@@ -44,7 +45,8 @@ public class ClientHandler implements Runnable {
                     }
                 }
             } catch (Exception e) {
-                break;
+                  e.printStackTrace();
+                  break;
             }
         }
 
