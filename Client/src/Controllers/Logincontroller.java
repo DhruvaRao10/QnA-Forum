@@ -28,14 +28,12 @@ public class  Logincontroller {
     public TextField usernameField;
 
     @FXML
-    public TextField emailIDField ;
-    @FXML
     public Label signinLabel;
     @FXML
     public Hyperlink signupLink;
 
     public void login(ActionEvent actionEvent) {
-        LoginRequest request = new LoginRequest(usernameField.getText(),emailIDField.getText() ,passwordField.getText());
+        LoginRequest request = new LoginRequest(usernameField.getText(),passwordField.getText());
         AppClient.sendRequest(request);
         LoginResponse response = (LoginResponse) AppClient.getResponse();
         Alert alert;

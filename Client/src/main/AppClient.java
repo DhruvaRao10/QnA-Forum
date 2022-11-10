@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import request.AppRequest;
+import response.AppResponse;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -53,6 +54,7 @@ public class AppClient extends Application {
     public static Object getResponse() {
         try {
             System.out.println("Waiting for response...");
+
             return objectInputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
