@@ -5,7 +5,7 @@ import java.net.URL;
 
 public class SearchqRequest extends AppRequest implements Serializable {
 
-    private static final long serialVersionUID = 3529685098267757690L;
+    private static final long serialVersionUID = 1529685098267757690L;
 
 
     private String searchkey;
