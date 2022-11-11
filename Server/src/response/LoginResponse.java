@@ -9,10 +9,6 @@ public class LoginResponse extends AppResponse implements Serializable {
     private final   String username;
     public  String  emailID;
 
-
-
-
-
     public LoginResponse(String username , String emailID) {
 
         this.username = username;

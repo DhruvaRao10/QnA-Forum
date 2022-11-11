@@ -39,3 +39,4 @@ public class AppServer {
 
     }
 }
+//is it required to make another connection for the search and create questions
