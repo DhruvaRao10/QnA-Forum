@@ -61,4 +61,15 @@ public class AppClient extends Application {
         }
         return null;
     }
-}
+
+
+    public void startsearch(Stage secondstage) throws IOException {
+
+            FXMLLoader loader= new FXMLLoader(AppClient.class.getResource("./../views/Searchquestions_view.fxml"));
+            secondstage.setTitle("Question string - Search");
+            secondstage.setScene(new Scene(loader.load(),1000,600));
+            secondstage.show();
+       }
+
+   }
+

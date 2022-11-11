@@ -13,9 +13,9 @@ public class SignupResponse extends AppResponse implements Serializable {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+   // public void setMessage(String message) {
+     //   this.message = message;
+  //  }
 
     @Override
     ResponseType getResponseType() {
