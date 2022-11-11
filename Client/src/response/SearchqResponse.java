@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class SearchqResponse extends AppResponse implements Serializable {
     private static final long serialVersionUID = 3529685098267757690L;
-    private final String searchkey ;
+    private  String searchkey ;
 
 
 

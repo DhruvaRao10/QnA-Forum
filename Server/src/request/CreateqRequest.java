@@ -10,22 +10,22 @@ public class CreateqRequest extends AppRequest implements Serializable {
 
 
 
-    private String email;
-    private String password;
-    private String username;
+    private String tag;
+    private String question;
 
-    public LoginRequest() {
+
+    public CreateqRequest() {
     }
 
-    public LoginRequest(String username, String password) {
+    public CreateqRequest(String tag, String question) {
 
-        this.password = password;
-        this.username = username ;
+        this.tag = tag ;
+        this.question = question ;
     }
 
 
-    public String getUsername() {
-        return username;
+    public String getTag() {
+        return tag;
     }
 
 
@@ -34,8 +34,8 @@ public class CreateqRequest extends AppRequest implements Serializable {
     // }
 
 
-    public String getPassword() {
-        return password;
+    public String getQuestion() {
+        return question;
     }
 
     //public void setPassword(String password) {
@@ -44,7 +44,7 @@ public class CreateqRequest extends AppRequest implements Serializable {
 
     @Override
     public RequestType getRequestType() {
-        return RequestType.LOGIN_REQUEST;
+        return RequestType.CREATEQ_REQUEST;
     }
 
 }

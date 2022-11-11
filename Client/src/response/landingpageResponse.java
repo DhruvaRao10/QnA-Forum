@@ -1,5 +1,7 @@
-package response;
+/*package response;
 
 public class landingpageResponse {
 
 }
+*/
+ // IS THIS REQUIRED

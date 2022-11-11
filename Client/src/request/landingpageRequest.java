@@ -1,4 +1,4 @@
-package request;
+/*package request;
 
 
 
@@ -32,3 +32,6 @@ public class landingpageRequest extends AppRequest implements Serializable {
     }
 }
 
+/*
+IS THIS REQUIRED IF THERE IS ALREADY A CREATE AND SEARCH RESPONSE AND REQUEST
+ */
