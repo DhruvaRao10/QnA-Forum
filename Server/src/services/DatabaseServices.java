@@ -27,7 +27,7 @@ public class DatabaseServices {
             preparedStatement.setString(1, signupRequest.getUsername());
             preparedStatement.setString(2, signupRequest.getEmail());
             preparedStatement.setString(3, signupRequest.getPassword());
-            preparedStatement.setInt (4, 0);
+            preparedStatement.setInt(4, 0);
             int result = preparedStatement.executeUpdate();
             if (result != 1) {
                 return new SignupResponse("FAILED!");
@@ -49,21 +49,27 @@ public class DatabaseServices {
             preparedStatement.setString(1, loginRequest.getUsername());
             preparedStatement.setString(2, loginRequest.getPassword());
             ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 String username = resultSet.getString(1);
-                String emailID=resultSet.getString(2);;
-                System.out.println(" username : "+username);
-                System.out.println("emailid  :"+emailID);
-                return new LoginResponse(username,emailID);
+                String emailID = resultSet.getString(2);
+                ;
+                System.out.println(" username : " + username);
+                System.out.println("emailid  :" + emailID);
+                return new LoginResponse(username, emailID);
             } else {
                 return null;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
+    }
+}
 
 
-        public static CreateqResponse createQuestion(CreateqRequest createqRequest) {
+
+
+       /* public static CreateqResponse createQuestion(CreateqRequest createqRequest) {
             Connection connection = AppServer.getConnection();
 
             String query = "SELECT  QUESTION,TAGS FROM USERS WHERE QUESTION=? AND TAGS=?;";
@@ -90,4 +96,8 @@ public class DatabaseServices {
         return null;
     }
 
-}
+        */
+
+
+
+

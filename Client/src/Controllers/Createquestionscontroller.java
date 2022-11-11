@@ -29,6 +29,9 @@ public class Createquestionscontroller {
     @FXML
     public Hyperlink  createqlink;
 
+    @FXML
+    public Button saveQuestion ;
+
 
 
 

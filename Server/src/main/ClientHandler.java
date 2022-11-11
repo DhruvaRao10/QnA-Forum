@@ -45,12 +45,7 @@ public class ClientHandler implements Runnable {
                         objectOutputStream.flush();
                     }
 
-                    case CREATEQ_REQUEST -> {
-                        System.out.println("Client wants to create a question ");
-                        CreateqRequest createqRequest = (CreateqRequest) request ;
-                        System.out.println("Question : "+createqRequest.getQuestion());
-                        objectOutputStream.close();(DatabaseServices.createQuestion(createqRequest))
-                    }
+                   
 
                 }
             } catch (Exception e) {

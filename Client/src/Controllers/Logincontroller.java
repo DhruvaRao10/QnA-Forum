@@ -20,7 +20,7 @@ public class  Logincontroller {
     @FXML
     public AnchorPane loginPane;
     @FXML
-    public Button loginButton;
+    public Hyperlink landingLink;
     @FXML
     public PasswordField passwordField;
 
@@ -59,12 +59,12 @@ public class  Logincontroller {
 
     }
 
-    public void switchtoLandingpage(ActionEvent actionEvent){
-        FXMLLoader registerLoader = new FXMLLoader(getClass().getResource("../views/landing_view.fxml"));
+    public void switchtoLandingpage(ActionEvent actionEtrovent){
+        FXMLLoader landingLoader = new FXMLLoader(getClass().getResource("../views/landing_view.fxml"));
         Scene scene = null;
-        Stage stage = (Stage) loginButton.getScene().getWindow();
+        Stage stage = (Stage)landingLink.getScene().getWindow();
         try {
-            scene = new Scene(registerLoader.load());
+            scene = new Scene(landingLoader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
