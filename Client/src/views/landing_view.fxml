@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
@@ -8,12 +9,11 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.LandingView">
+<AnchorPane fx:id="landingpagepane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.LandingView">
    <children>
-      <Button fx:id="create_q" layoutX="132.0" layoutY="149.0" mnemonicParsing="false" onAction="#create_questions" prefHeight="102.0" prefWidth="124.0" text="CREATE" />
-      <Button fx:id="search_q" layoutX="353.0" layoutY="149.0" mnemonicParsing="false" onAction="#search_questions" prefHeight="102.0" prefWidth="126.0" text="SEARCH" />
-      <Label fx:id="qnalabel" layoutX="213.0" layoutY="27.0" prefHeight="50.0" prefWidth="174.0" text="ILLUMINATE" textAlignment="JUSTIFY">
+      <Button fx:id="create_q" layoutX="132.0" layoutY="149.0" mnemonicParsing="false" onAction="#create_questions" prefHeight="102.0" prefWidth="124.0" />
+      <Button fx:id="search_q" layoutX="353.0" layoutY="149.0" mnemonicParsing="false" onAction="#search_questions" prefHeight="102.0" prefWidth="126.0" />
+      <Label fx:id="qna_namelabel" layoutX="213.0" layoutY="27.0" prefHeight="50.0" prefWidth="174.0" text="ILLUMINATE" textAlignment="JUSTIFY">
          <font>
             <Font name="Centaur" size="29.0" />
          </font>
@@ -34,5 +34,7 @@
             </RadialGradient>
          </textFill>
       </Label>
+      <Hyperlink fx:id="createqlink" layoutX="165.0" layoutY="188.0" onAction="#createquestions" text="CREATE" />
+      <Hyperlink fx:id="searchqlink" layoutX="387.0" layoutY="189.0" onAction="#searchquestions" text="SEARCH" />
    </children>
 </AnchorPane>

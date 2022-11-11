@@ -1,5 +1,4 @@
 package Controllers;
-
 import main.AppClient;
 import request.LoginRequest;
 
@@ -15,7 +14,7 @@ import response.LoginResponse;
 import java.io.IOException;
 
 
-public class Createquestionscontroller {
+public class SearchquestionsController {
     public AnchorPane landingpagepane;
     @FXML
     public Button create_q;
@@ -27,15 +26,13 @@ public class Createquestionscontroller {
     public Label qna_namelabel;
 
     @FXML
-    public Hyperlink  createqlink;
+    public Hyperlink  searchqlink;
 
 
-
-
-    public void switchToCreate(ActionEvent actionEvent) {
-        FXMLLoader registerLoader = new FXMLLoader(getClass().getResource("../views/Createquestions_view.fxml"));
+    public void switchToSearch(ActionEvent actionEvent) {
+        FXMLLoader registerLoader = new FXMLLoader(getClass().getResource("../views/Searchquestions_view.fxml"));
         Scene scene = null;
-        Stage stage = (Stage) createqlink.getScene().getWindow();
+        Stage stage = (Stage) searchqlink.getScene().getWindow();
         try {
             scene = new Scene(registerLoader.load());
         } catch (IOException e) {

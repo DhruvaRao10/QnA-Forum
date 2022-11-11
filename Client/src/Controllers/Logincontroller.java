@@ -40,9 +40,9 @@ public class  Logincontroller {
         if (response == null) {
             alert = new Alert(Alert.AlertType.ERROR, "Incorrect information. Please try again.");
         } else {
-            alert = new Alert(Alert.AlertType.INFORMATION, "Login successful.");
+            switchtoLandingpage(actionEvent);
         }
-        alert.showAndWait();
+
     }
 
     public void switchToSignup(ActionEvent actionEvent) {
@@ -58,6 +58,21 @@ public class  Logincontroller {
         stage.setTitle("Sign Up");
 
     }
+
+    public void switchtoLandingpage(ActionEvent actionEvent){
+        FXMLLoader registerLoader = new FXMLLoader(getClass().getResource("../views/landing_view.fxml"));
+        Scene scene = null;
+        Stage stage = (Stage) loginButton.getScene().getWindow();
+        try {
+            scene = new Scene(registerLoader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.setScene(scene);
+        stage.setTitle("Landing Page here");
+
+    }
+
 
 
 }
