@@ -1,10 +1,16 @@
 package services;
 
+import javafx.stage.Stage;
 import main.AppServer;
+import request.CreateqRequest;
 import request.LoginRequest;
 import request.SignupRequest;
+import request.CreateqRequest;
+import response.CreateqResponse;
 import response.LoginResponse;
 import response.SignupResponse;
+import response.CreateqResponse;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -55,6 +61,32 @@ public class DatabaseServices {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+
+        public static CreateqResponse createQuestion(CreateqRequest createqRequest) {
+            Connection connection = AppServer.getConnection();
+
+            String query = "SELECT  QUESTION,TAGS FROM USERS WHERE QUESTION=? AND TAGS=?;";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1.create);
+            preparedStatement.setString(2, createqrequest.getQuestion());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+            }
+                String tag     = resultSet.getString(1);
+                String question = resultSet.getString(2);
+
+                System.out.println(" tag :"+tag);
+                System.out.println("question :"+question);
+                return new LoginResponse(tag,question);
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 

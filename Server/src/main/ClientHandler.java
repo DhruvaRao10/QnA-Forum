@@ -1,6 +1,7 @@
 package main;
 
 import request.AppRequest;
+import request.CreateqRequest;
 import request.LoginRequest;
 import request.SignupRequest;
 import services.DatabaseServices;
@@ -43,6 +44,14 @@ public class ClientHandler implements Runnable {
                         objectOutputStream.writeObject(DatabaseServices.createUser(signupRequest));
                         objectOutputStream.flush();
                     }
+
+                    case CREATEQ_REQUEST -> {
+                        System.out.println("Client wants to create a question ");
+                        CreateqRequest createqRequest = (CreateqRequest) request ;
+                        System.out.println("Question : "+createqRequest.getQuestion());
+                        objectOutputStream.close();(DatabaseServices.createQuestion(createqRequest))
+                    }
+
                 }
             } catch (Exception e) {
                   e.printStackTrace();

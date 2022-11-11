@@ -3,6 +3,8 @@ package response;
 import java.io.Serializable;
 
 public class SignupResponse extends AppResponse implements Serializable {
+    private static final long serialVersionUID = 8529685098267757691L;
+
     private String message;
 
     public SignupResponse(String message) {
