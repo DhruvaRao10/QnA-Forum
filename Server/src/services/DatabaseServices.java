@@ -1,6 +1,7 @@
 package services;
 
 import javafx.stage.Stage;
+import jdk.internal.icu.text.UTF16;
 import main.AppServer;
 import request.CreateqRequest;
 import request.LoginRequest;
@@ -12,10 +13,8 @@ import response.SignupResponse;
 import response.CreateqResponse;
 
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalTime;
 
 public class DatabaseServices {
 
@@ -64,19 +63,26 @@ public class DatabaseServices {
         }
         return null;
     }
-}
 
 
 
 
-       /* public static CreateqResponse createQuestion(CreateqRequest createqRequest) {
+
+
+       /public static CreateqResponse createQuestion(CreateqRequest createqRequest) {
             Connection connection = AppServer.getConnection();
 
-            String query = "SELECT  QUESTION,TAGS FROM USERS WHERE QUESTION=? AND TAGS=?;";
+            String query = "INSERT INTO QUESTION,TAGS FROM USERS WHERE QUESTION=? AND TAGS=?;";
+            String query = "INSERT INTO QUESTION(TAG,QUESTION,USAGE_COUNT,CREATED_TIME,TIME_LAST_REFERRED) VALUES(?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1.create);
-            preparedStatement.setString(2, createqrequest.getQuestion());
+            preparedStatement.setString(1,createqRequest.getQuestion());
+            preparedStatement.setString(2,createqRequest.getTag());
+            preparedStatement.setInt(3,0);
+            Timestamp LocalTime;
+            preparedStatement.setTimestamp(2, LocalTime());
+            preparedStatement.setTime
+
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
             }
@@ -85,8 +91,10 @@ public class DatabaseServices {
 
                 System.out.println(" tag :"+tag);
                 System.out.println("question :"+question);
-                return new LoginResponse(tag,question);
-            } else {
+                return new CreateqResponse(tag,question);
+            } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        } else {
                 return null;
             }
         } catch (SQLException e) {
@@ -96,7 +104,7 @@ public class DatabaseServices {
         return null;
     }
 
-        */
+
 
 
 

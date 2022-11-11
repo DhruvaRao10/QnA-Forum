@@ -45,7 +45,14 @@ public class ClientHandler implements Runnable {
                         objectOutputStream.flush();
                     }
 
-                   
+                    case CREATEQ_REQUEST -> {
+                        System.out.println("Client wants to create a question !");
+                        SignupRequest signupRequest = (SignupRequest) request;
+                        System.out.println("Email: " + signupRequest.getEmail());
+                        objectOutputStream.writeObject(DatabaseServices.createQuestion(signupRequest));
+                        objectOutputStream.flush();
+                    }
+
 
                 }
             } catch (Exception e) {

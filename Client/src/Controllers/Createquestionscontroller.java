@@ -18,6 +18,12 @@ import java.io.IOException;
 public class Createquestionscontroller {
     public AnchorPane landingpagepane;
     @FXML
+    public TextField tagField;
+
+    @FXML
+    public TextField questionField;
+
+    @FXML
     public Button create_q;
 
     @FXML
