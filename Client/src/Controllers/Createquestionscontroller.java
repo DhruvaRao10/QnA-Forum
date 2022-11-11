@@ -1,6 +1,7 @@
 package Controllers;
 
 import main.AppClient;
+import request.CreateqRequest;
 import request.LoginRequest;
 
 import javafx.event.ActionEvent;
@@ -10,18 +11,22 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import response.CreateqResponse;
 import response.LoginResponse;
 
 import java.io.IOException;
 
 
 public class Createquestionscontroller {
+
+
+
     public AnchorPane landingpagepane;
     @FXML
     public TextField tagField;
 
     @FXML
-    public TextField questionField;
+    public TextArea questionField;
 
     @FXML
     public Button create_q;
@@ -34,9 +39,6 @@ public class Createquestionscontroller {
 
     @FXML
     public Hyperlink  createqlink;
-
-    @FXML
-    public Button saveQuestion ;
 
 
 
@@ -56,13 +58,18 @@ public class Createquestionscontroller {
     }
 
 
+    public void savequestion(ActionEvent actionEvent) {
+        CreateqRequest  request = new  CreateqRequest(tagField.getText(), questionField.getText()) ;
 
-
-
-
-
-
-
-
-
+        AppClient.sendRequest(request);
+        CreateqResponse response = (CreateqResponse) AppClient.getResponse();
+        Alert alert;
+        if (response == null) {
+            alert = new Alert(Alert.AlertType.ERROR, "Failed to save question");
+            alert.showAndWait();
+        } else {
+            alert = new Alert(Alert.AlertType.INFORMATION, "Question saved successfully");
+            //switchtoLandingpage(actionEvent);
+        }
+    }
 }

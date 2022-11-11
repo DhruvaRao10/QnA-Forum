@@ -4,6 +4,7 @@ import request.AppRequest;
 import request.CreateqRequest;
 import request.LoginRequest;
 import request.SignupRequest;
+import request.CreateqRequest;
 import services.DatabaseServices;
 
 import java.io.ObjectInputStream;
@@ -44,20 +45,17 @@ public class ClientHandler implements Runnable {
                         objectOutputStream.writeObject(DatabaseServices.createUser(signupRequest));
                         objectOutputStream.flush();
                     }
-
                     case CREATEQ_REQUEST -> {
-                        System.out.println("Client wants to create a question !");
-                        SignupRequest signupRequest = (SignupRequest) request;
-                        System.out.println("Email: " + signupRequest.getEmail());
-                        objectOutputStream.writeObject(DatabaseServices.createQuestion(signupRequest));
+                        System.out.println("Client wants to create a question!");
+                        CreateqRequest qRequest = (CreateqRequest) request;
+                        System.out.println("Tag : " + qRequest.getTag());
+                        objectOutputStream.writeObject(DatabaseServices.createQuestion(qRequest));
                         objectOutputStream.flush();
                     }
-
-
                 }
             } catch (Exception e) {
-                  e.printStackTrace();
-                  break;
+                e.printStackTrace();
+                break;
             }
         }
 
