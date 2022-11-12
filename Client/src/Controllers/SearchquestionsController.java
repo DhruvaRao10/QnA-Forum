@@ -50,7 +50,7 @@ public class SearchquestionsController {
             e.printStackTrace();
         }
         stage.setScene(scene);
-        stage.setTitle("Create Question");
+        stage.setTitle("Search  Question");
 
     }
 

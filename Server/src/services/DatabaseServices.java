@@ -1,14 +1,8 @@
 package services;
 
 import main.AppServer;
-import request.LoginRequest;
-import request.SearchqRequest;
-import request.SignupRequest;
-import request.CreateqRequest;
-import response.CreateqResponse;
-import response.LoginResponse;
-import response.SearchqResponse;
-import response.SignupResponse;
+import request.*;
+import response.*;
 
 import javax.print.attribute.standard.DateTimeAtCreation;
 import java.sql.Connection;
@@ -120,4 +114,29 @@ public class DatabaseServices {
     }
 
 
+    public static QnaResponse createQna(QnaRequest createqnaRequest) {
+        System.out.println(" inside 1 createqna call ");
+        Connection connection = AppServer.getConnection();
+        String query = "SELECT Q.QUESTION, A.ANSWER FROM QUESTIONS q,ANSWERS a WHERE a.QUESTION_ID IN (SELECT q.QUESTION_ID FROM QUESTIONS); ";
+
+        try {
+            System.out.println(" inside 2 createqns call ");
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            StringBuffer results = new StringBuffer();
+            int count = 1;
+            while(resultSet.next()) {
+                String question = resultSet.getString(1);
+                String answer = resultSet.getString(2);
+                results.append("QUESTION - "+String.valueOf(count)+  " : "+ question + " ANSWER - "+
+                        String.valueOf(count)+  " : "+ answer +" \n\n");
+                System.out.println(" search returned Question = " + question+" and Answer =  "+answer );
+                count++;
+            }
+            return new QnaResponse(results.toString());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

@@ -2,12 +2,14 @@ package main;
 
 import request.*;
 import request.CreateqRequest;
+import response.QnaResponse;
 import response.SearchqResponse;
 import services.DatabaseServices;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.sql.SQLOutput;
 
 public class ClientHandler implements Runnable {
     Socket socket;
@@ -57,6 +59,14 @@ public class ClientHandler implements Runnable {
                         SearchqResponse resp = DatabaseServices.search(sRequest);
                         System.out.println(" search response to client is "+resp.getSearchResponse());
                         objectOutputStream.writeObject(resp);
+                        objectOutputStream.flush();
+                    }
+
+                    case QNA_REQUEST -> {
+                        System.out.println("Client wants to view list of all question and answers !");
+                        QnaRequest qnaRequest = (QnaRequest) request;
+                        System.out.println();
+                        objectOutputStream.writeObject(DatabaseServices.createQna(qnaRequest));
                         objectOutputStream.flush();
                     }
                 }

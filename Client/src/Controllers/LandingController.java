@@ -64,6 +64,17 @@ public class LandingController {
         stage.setScene(scene);
         stage.setTitle("Search Page");
     }
+    public void switchtoqnapage(ActionEvent actionEvent) {
+        FXMLLoader sLoader = new FXMLLoader(getClass().getResource("../views/qna_view.fxml"));
+        Scene scene = null;
 
-
+        Stage stage = (Stage) search_q.getScene().getWindow();
+        try {
+            scene = new Scene(sLoader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.setScene(scene);
+        stage.setTitle("QnA Page");
+    }
 }
