@@ -72,7 +72,6 @@ public class DatabaseServices {
 
             int result =  preparedStatement.executeUpdate();
             if (result == 1) {
-                // wont come here
                 return  new CreateqResponse(createqRequest.getTag(),createqRequest.getQuestion());
             }
 
