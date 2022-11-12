@@ -9,42 +9,43 @@ import java.net.UnknownHostException;
 import java.io.IOException;
 
 
-public class questions extends AppServer  {
+public class tags {
     static String hostname = "127.0.0.1";
     static int port = 3000;
-    static ObjectOutputStream questionoutputstream;
-    static ObjectInputStream questioninputstream;
+    static ObjectOutputStream tagoutputstream;
+    static ObjectInputStream taginputstream;
+
 
     public static void main(String[] args) {
         try{
-        Socket questionsocket=new Socket(hostname,port);
-        questionoutputstream = new ObjectOutputStream(questionsocket.getOutputStream());
-        questioninputstream =  new ObjectInputStream(questionsocket.getInputStream());
+            Socket questionsocket=new Socket(hostname,port);
+            tagoutputstream = new ObjectOutputStream(questionsocket.getOutputStream());
+            taginputstream =  new ObjectInputStream(questionsocket.getInputStream());
             System.out.println("Connected to the server");
 
 
-    } catch (UnknownHostException e) {
+        } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        public static void sendquestionrequest(AppRequest  request);
+        public static void sendtagrequest(AppRequest  request);
         {
             try{
-                 questionoutputstream.writeObject(request);
-                 questionoutputstream.flush();;
+                tagoutputstream.writeObject(request);
+                tagoutputstream.flush();;
                 System.out.println("Question request sent to the server");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
-        public static Object getquestionresponse(){
+        public static Object gettagresponse(){
             try{
                 System.out.println("Waiting for response");
 
-                return questioninputstream.readObject();
+                return taginputstream.readObject();
             }catch(IOException | ClassNotFoundException e){
                 e.printStackTrace();
             }
@@ -53,6 +54,11 @@ public class questions extends AppServer  {
 
 
     }
+
+
+}
+
+
 
 
 }

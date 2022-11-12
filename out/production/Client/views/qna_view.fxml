@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.QnaController">
+    <children>
+        <Label fx:id="QNA_label" layoutX="347.0" layoutY="32.0" prefHeight="46.0" prefWidth="89.0" text="Q &amp; A">
+            <font>
+                <Font size="29.0" />
+            </font>
+        </Label>
+        <TextArea fx:id="results" editable="false" layoutX="95.0" layoutY="128.0" prefHeight="338.0" prefWidth="668.0" promptText="Questions and Answers listing shows here" text="Questions and Answers listing shows here" wrapText="true" />
+        <Hyperlink fx:id="landingpage" layoutX="641.0" layoutY="41.0" onAction="#switchtolandingpage" text="go to landing page" />
+    </children>
+</AnchorPane>
