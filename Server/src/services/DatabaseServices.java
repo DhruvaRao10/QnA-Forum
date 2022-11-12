@@ -2,10 +2,12 @@ package services;
 
 import main.AppServer;
 import request.LoginRequest;
+import request.SearchqRequest;
 import request.SignupRequest;
 import request.CreateqRequest;
 import response.CreateqResponse;
 import response.LoginResponse;
+import response.SearchqResponse;
 import response.SignupResponse;
 
 import javax.print.attribute.standard.DateTimeAtCreation;
@@ -80,6 +82,36 @@ public class DatabaseServices {
                 return  new CreateqResponse(createqRequest.getTag(),createqRequest.getQuestion());
             }
 
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static SearchqResponse search(SearchqRequest searchqRequest) {
+        System.out.println(" inside 1 search request call ");
+        Connection connection = AppServer.getConnection();
+        StringBuffer searchStr = new StringBuffer("%");
+        searchStr.append(searchqRequest.getSearchkey());
+        searchStr.append(new String("%"));
+
+        String query = "SELECT QUESTION FROM QUESTIONS WHERE TAG LIKE ? OR QUESTION LIKE ? ";
+        try {
+            System.out.println(" inside 2 search call ");
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1,searchStr.toString());
+            preparedStatement.setString(2, searchStr.toString());
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            StringBuffer results = new StringBuffer();
+            int count = 1;
+            while(resultSet.next()) {
+                String question = resultSet.getString(1);
+                results.append("Result "+String.valueOf(count++)+  ": "+ question +" \n\n");
+                System.out.println(" search returned " + question);
+            }
+            return new SearchqResponse(results.toString(),results.toString());
 
         } catch (SQLException e) {
             e.printStackTrace();

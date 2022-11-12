@@ -20,7 +20,6 @@ import java.io.IOException;
 public class Createquestionscontroller {
 
 
-
     public AnchorPane landingpagepane;
     @FXML
     public TextField tagField;
@@ -38,9 +37,7 @@ public class Createquestionscontroller {
     public Label qna_namelabel;
 
     @FXML
-    public Hyperlink  createqlink;
-
-
+    public Hyperlink createqlink;
 
 
     public void switchToCreate(ActionEvent actionEvent) {
@@ -59,7 +56,7 @@ public class Createquestionscontroller {
 
 
     public void savequestion(ActionEvent actionEvent) {
-        CreateqRequest  request = new  CreateqRequest(tagField.getText(), questionField.getText()) ;
+        CreateqRequest request = new CreateqRequest(tagField.getText(), questionField.getText());
 
         AppClient.sendRequest(request);
         CreateqResponse response = (CreateqResponse) AppClient.getResponse();
@@ -69,7 +66,22 @@ public class Createquestionscontroller {
             alert.showAndWait();
         } else {
             alert = new Alert(Alert.AlertType.INFORMATION, "Question saved successfully");
-            //switchtoLandingpage(actionEvent);
+            switchtoLandingpage(actionEvent);
         }
     }
+
+    public void switchtoLandingpage(ActionEvent actionEvent) {
+        FXMLLoader landingLoader = new FXMLLoader(getClass().getResource("../views/landing_view.fxml"));
+        Scene scene = null;
+
+        Stage stage = (Stage) tagField.getScene().getWindow();
+        try {
+            scene = new Scene(landingLoader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.setScene(scene);
+        stage.setTitle("Landing Page here");
+    }
+
 }

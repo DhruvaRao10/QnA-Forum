@@ -1,10 +1,8 @@
 package main;
 
-import request.AppRequest;
+import request.*;
 import request.CreateqRequest;
-import request.LoginRequest;
-import request.SignupRequest;
-import request.CreateqRequest;
+import response.SearchqResponse;
 import services.DatabaseServices;
 
 import java.io.ObjectInputStream;
@@ -50,6 +48,15 @@ public class ClientHandler implements Runnable {
                         CreateqRequest qRequest = (CreateqRequest) request;
                         System.out.println("Tag : " + qRequest.getTag());
                         objectOutputStream.writeObject(DatabaseServices.createQuestion(qRequest));
+                        objectOutputStream.flush();
+                    }
+                    case SEARCHQ_REQUEST -> {
+                        System.out.println("Client wants to search for questions!");
+                        SearchqRequest sRequest = (SearchqRequest) request;
+                        System.out.println("Tag : " + sRequest.getSearchkey());
+                        SearchqResponse resp = DatabaseServices.search(sRequest);
+                        System.out.println(" search response to client is "+resp.getSearchResponse());
+                        objectOutputStream.writeObject(resp);
                         objectOutputStream.flush();
                     }
                 }

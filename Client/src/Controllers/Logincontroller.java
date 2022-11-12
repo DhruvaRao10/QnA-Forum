@@ -20,7 +20,7 @@ public class  Logincontroller {
     @FXML
     public AnchorPane loginPane;
     @FXML
-    public Hyperlink landingLink;
+    public Button loginButton;
     @FXML
     public PasswordField passwordField;
 
@@ -32,6 +32,9 @@ public class  Logincontroller {
     @FXML
     public Hyperlink signupLink;
 
+    @FXML
+    public Hyperlink landingLink;
+
     public void login(ActionEvent actionEvent) {
         LoginRequest request = new LoginRequest(usernameField.getText(),passwordField.getText());
         AppClient.sendRequest(request);
@@ -39,9 +42,11 @@ public class  Logincontroller {
         Alert alert;
         if (response == null) {
             alert = new Alert(Alert.AlertType.ERROR, "Incorrect information. Please try again.");
+            alert.showAndWait();
         } else {
             switchtoLandingpage(actionEvent);
         }
+
 
     }
 
@@ -56,13 +61,13 @@ public class  Logincontroller {
         }
         stage.setScene(scene);
         stage.setTitle("Sign Up");
-
     }
 
-    public void switchtoLandingpage(ActionEvent actionEtrovent){
+    public void switchtoLandingpage(ActionEvent actionEvent){
         FXMLLoader landingLoader = new FXMLLoader(getClass().getResource("../views/landing_view.fxml"));
         Scene scene = null;
-        Stage stage = (Stage)landingLink.getScene().getWindow();
+
+        Stage stage = (Stage) landingLink.getScene().getWindow();
         try {
             scene = new Scene(landingLoader.load());
         } catch (IOException e) {
@@ -70,7 +75,6 @@ public class  Logincontroller {
         }
         stage.setScene(scene);
         stage.setTitle("Landing Page here");
-
     }
 
 
